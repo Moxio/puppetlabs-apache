@@ -67,10 +67,7 @@ class apache::mod::php (
     $_lib = "librh-php${_php_version_no_dot}-php${_php_major}.so"
   } else {
     # Controls php version and libphp prefix
-    $_lib = $_php_major ? {
-      '8'     => "${libphp_prefix}.so",
-      default => "${libphp_prefix}${php_version}.so",
-    }
+    $_lib = "${libphp_prefix}${php_version}.so"
   }
   $_module_id = $_php_major ? {
     '5'     => 'php5_module',
